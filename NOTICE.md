@@ -2,25 +2,25 @@
 
 ## 基座模型
 
-两个 adapter 的基座均为 **Huihui-Qwen3.5-4B-abliterated**（社区发布的 Qwen3.5-4B abliterated 版本）。
+- **模型**：[`huihui-ai/Huihui-Qwen3.5-4B-abliterated`](https://huggingface.co/huihui-ai/Huihui-Qwen3.5-4B-abliterated)
+- **上游**：[`Qwen/Qwen3.5-4B`](https://huggingface.co/Qwen/Qwen3.5-4B)
+- **许可证**：`apache-2.0`（见基座模型卡的 `license` / `license_link` 字段）
 
-基座模型的名称与来源由训练时的 `adapter_config.json` 记录：
+## 本仓库的谱系
 
-- `p2`: base = `merged-crox-p1v3`（在基座上经 P1 系列 LoRA 合并得到的中间权重）
-- `t2`: base = `merged-crox-t1v2`（同上，T1 系列）
+| 本仓库 adapter | 训练时使用的 base（合并权重） |
+|---|---|
+| `p2` | `merged-crox-p1v3` — P1 系列 LoRA 合并得到的中间权重 |
+| `t2` | `merged-crox-t1v2` — T1 系列 LoRA 合并得到的中间权重 |
 
-## 许可证关系
+两代之间是「合并 → 再训练」的链式关系，最终都回溯到同一个基座 `Huihui-Qwen3.5-4B-abliterated`。
 
-本仓库的 LoRA adapter 属于基座模型的**衍生作品**：
+## 许可证
 
-1. 使用、分发或商用这些权重，必须同时遵守基座模型（Qwen3.5-4B 及其 abliterated 版本）的许可证条款；
-2. 本仓库不对基座模型的权利做任何额外授权或豁免；
-3. 若基座许可证禁止某些用途（例如特定商业场景），该限制同样适用于本 adapter。
-
-**本仓库自身不另附许可证**——因为上游条款尚未在本项目内确认。
-在明确基座条款之前，请把它当作「仅供研究/个人使用」的权重，不要用于商业分发。
+本仓库的 LoRA adapter、配置与脚本以 **Apache-2.0** 提供（见 [`LICENSE`](LICENSE)），
+同时必须遵守基座模型及其上游 Qwen 的许可条款。
 
 ## 内容安全
 
-基座经过 abliterated 处理（移除了部分拒答行为），因此模型可能对敏感提示不设防。
-使用方需自行承担内容审核责任。
+基座经过 abliterated 处理（移除部分拒答行为），模型可能对敏感提示不设防。
+使用方需自行承担内容审核与合规责任。
