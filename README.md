@@ -30,7 +30,7 @@ Qwen3.5-4B-abliterated
 | `lora_dropout` | 0.05 |
 | `bias` | none |
 | target_modules | `q_proj` · `k_proj` · `v_proj` · `o_proj` · `gate_proj` · `up_proj` · `down_proj` · `in_proj_qkv` · `in_proj_z` · `out_proj`（含 Qwen3.5 混合层的投影） |
-| 基座 | `Huihui-Qwen3.5-4B-abliterated` |
+| 基座 | `Huihui-Qwen3.5-4B-abliterated`（[HF](https://huggingface.co/huihui-ai/Huihui-Qwen3.5-4B-abliterated)） |
 
 ## 文件
 
@@ -73,6 +73,10 @@ llama-cli -m m-crox-p2-q4_k_m.gguf -p "你好" -n 256
 - **训练语料**：包含私人对话记录，不公开
 - **合并后的权重与 GGUF**：体积过大，走 Releases / 外部存储
 
-## 许可证
+## 基座与许可证
 
-见 [`NOTICE.md`](NOTICE.md)：adapter 是衍生作品，使用时必须同时遵守基座模型的许可条款。
+- **基座**：[`huihui-ai/Huihui-Qwen3.5-4B-abliterated`](https://huggingface.co/huihui-ai/Huihui-Qwen3.5-4B-abliterated)
+  （uncensored 版 [`Qwen/Qwen3.5-4B`](https://huggingface.co/Qwen/Qwen3.5-4B)，其模型卡标注 `license: apache-2.0`）
+- **本仓库**：LoRA adapter 与脚本随基座一并以 [Apache-2.0](LICENSE) 提供
+
+使用时请同时遵守基座模型与其上游 Qwen 的许可条款。
